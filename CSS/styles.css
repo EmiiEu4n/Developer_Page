@@ -1,0 +1,347 @@
+/*Custom properties (Propiedades personalizadas), esto sirve en casos de que quiera hacer un cambio global y no tener que estar buscando los lugares donde estan*/
+/*Paleta de color*/
+/*Crear un snippet buscador Snippet luego css.js*/
+:root {
+  /*Variables (--)*/
+  --blanco: #ffffff;
+  --oscuro: #212121;
+  --primario: #ffc107;
+  --secundario: #0097a7;
+  --gris: #757575;
+  --lila: #d29bfd;
+  --azul: #abc4ff;
+  --grisclaro: #dfe9f3;
+}
+
+html {
+  font-size: 62.5%;
+  /* Hack para box model */
+  box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-size: 16px;
+  /* Tipo de letra */
+  font-family: krub, sans-serif;
+  /* Poner Gradiantes */
+  background-image: linear-gradient(
+    to top,
+    var(--secundario) 0%,
+    var(--blanco) 100%
+  );
+}
+
+/* Tipografia */
+h1 {
+  font-size: 3.8rem;
+}
+h2 {
+  font-size: 2.8rem;
+}
+h3 {
+  font-size: 1.8rem;
+}
+h1,
+h2,
+h3 {
+  text-align: center;
+}
+
+.titulo span {
+  font-size: 2rem;
+}
+
+.navegacion-principal {
+  background-color: var(--secundario);
+  font-weight: 600;
+  color: #000000;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /*
+  justify-content es para filas
+  align-items es para columnas (flex-direction)
+  el flexbox no se utiliza para animacion
+  - BEM bloques - elementos - modificadores
+  .card{}
+  .card__titule{}
+  .card__imagen{}
+  .card__boton{}
+  .card__boton--activo{}
+  - utility-firts
+  - modulos
+  Herramientas para css
+  - tailwind y bootstrap
+  
+  Snippet (Fragmento)
+  - Partes del codigo que puedes reutilizar
+
+  Descargar
+  - Responsive live
+
+  Bluer (Desenfoque, difuminado)
+
+  */
+
+  justify-content: space-between;
+}
+@media (min-width: 768px) {
+  .navegacion-principal {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.navegacion-principal a {
+  font-weight: bold; /*Como poner negritas el font*/
+  padding: 1rem;
+  font-style: normal;
+  font-size: 2rem;
+  text-decoration: none;
+  color: var(--blanco);
+}
+
+.navegacion-principal a:hover {
+  color: var(--oscuro);
+  background-color: var(--primario);
+}
+/*Tamaños recomendados para media query
+480 px dispoditivos moviles
+768 px tablets
+1140 px laptops
+1400 px para monitores mas grandes 
+*/
+
+.contenedor {
+  max-width: 120rem;
+  /* 1ra manera mas detallada
+  margin-top: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0;*/
+  /*margin: 0 auto 0 auto;*/ /*Mas simplificado*/
+  margin: 0 auto; /*Primer valor le pertenece al top-bottom y el segundo al rigth-left*/
+}
+
+/*
+Display: Block es vertical  
+Display: inline es horizontal "nav"
+Display: flex 
+*/
+.nav-bg {
+  background-color: var(--secundario);
+}
+
+.hero {
+  background-image: url(../Image/MicrosoftTeams-image.png);
+  /* ../ los dos puntos diagonal es para salir de la carpeta donde estas */
+  background-repeat: no-repeat;
+  /* En imagenes pequeñas suele repetirse y abarcar el espacio de la pagina */
+  background-size: cover;
+  /* Sirve para cubrir toda la umagen con todo el tamaño */
+  height: 450px;
+  /* Alto del elemmento hero */
+  position: relative;
+  /* Para manipular la posicion, el padre siempre debe ser relative */
+}
+
+.contenedor-hero {
+  position: absolute;
+  /* Manipular la posicion, el hijo siempre debe ser absoluto */
+  background-color: rgba(0, 0, 0, 0.7);
+  /* 0.7 transparencia Alpha */
+  width: 100%;
+  height: 100%;
+  /* Alinear vertical y horizontalmente */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0; */
+}
+.contenedor-hero p,
+.contenedor-hero h2 {
+  color: var(--blanco);
+}
+.ubicacion {
+  display: flex;
+  align-items: flex-end;
+}
+
+.boton {
+  /* Color de boton */
+  background-color: var(--secundario);
+  /* Color del texto */
+  color: var(--blanco);
+  padding: 1rem 3rem;
+  /* Separacion superior */
+  margin-top: 3rem;
+  font-size: 2rem;
+  /* Quitar subrayado */
+  text-decoration: none;
+  /* Poner mayuscula */
+  text-transform: uppercase;
+  font-weight: bold;
+  /* boton */
+  border-radius: 0.5rem;
+  width: 90%;
+  text-align: center;
+  border: none;
+  /* Afecta a la propiedad input */
+}
+
+@media (min-width: 768px) {
+  .boton {
+    width: auto;
+  }
+}
+.boton:hover {
+  cursor: pointer;
+}
+
+.sombra {
+  /* Se agrega por compatibilidad */
+  /* Para generar una sombra */
+  box-shadow: 0px 5px 15px 0px rgba(112, 111, 112, 0.5);
+  /* motor para google chrome */
+  -webkit-box-shadow: 0px 5px 15px 0px rgba(112, 111, 112, 0.5);
+  /* Motor para mozilla firefox */
+  -moz-box-shadow: 0px 5px 15px 0px rgba(112, 111, 112, 0.5);
+  background-color: var(--blanco);
+  padding: 2rem;
+  border-radius: 1rem;
+  margin-top: 2rem;
+}
+
+/* Grid: Guia */
+/* ¿Para que sirve el hero? Es una imagen 
+
+Adaptar la parte "mis servicios" con flex box
+Pagina:
+https://cssgenerator.org/
+*/
+
+.footer {
+  text-align: center;
+}
+
+/* Servicios */
+
+@media (min-width: 768px) {
+  .servicios {
+    display: grid;
+    /* grid-template-columns: 1fr 1fr 1fr; */
+    /* grid-template-columns: 33.3% 33.3% 33.3%; */
+    /*  */
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .servicio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  /* Ajustar color y negritas del h3 */
+  .servicio h3 {
+    color: var(--secundario);
+    font-weight: normal;
+  }
+
+  .servicio p {
+    text-align: center;
+    /* interlineado para examen lo va pedir*/
+    line-height: 2;
+  }
+
+  .servicio .iconos {
+    display: flex;
+    justify-content: center;
+    background-color: var(--secundario);
+    border-radius: 50%;
+    height: 15rem;
+    width: 15rem;
+    align-items: center;
+  }
+  /* Contacto */
+  .formulario {
+    background-color: var(--oscuro);
+    /* Ahorra el uso del media query, ¿que es mas pequeño 60rem o el 100% de la pantalla? */
+    width: min(60rem, 100%);
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 1rem;
+  }
+
+  .formulario fieldset {
+    border: none;
+  }
+
+  .formulario legend {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    color: var(--blanco);
+  }
+
+  @media (min-width: 768px) {
+    .contenedor-campos {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 1rem;
+      /* gap significa brecha o un hueco */
+      grid-template-rows: auto auto 20rem;
+      /* Espacios de la fila */
+    }
+    /* nth-child significa "el # del hijo" el orden seria nombre, telefono, correo, y mensaje. Como queremos modificar correo y mensaje usaremos 3 y 4 en nth-child*/
+    .campo:nth-child(3),
+    .campo:nth-child(4) {
+      /* Para que vaya de la 1 a la 3 */
+      grid-column: 1/3;
+    }
+  }
+  .campo label {
+    color: var(--blanco);
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+
+  .input-text {
+    width: 100%;
+    border: none;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+  }
+
+  .campo textarea {
+    height: 20rem;
+  }
+  /* Utilidades */
+  .w-sm-100 {
+    width: 100%;
+  }
+
+  @media (min-width: 768px) {
+    .w-sm-100 {
+      width: auto;
+    }
+  }
+  .flex {
+    display: flex;
+  }
+
+  .alinear-derecha {
+    justify-content: flex-end;
+  }
+}
